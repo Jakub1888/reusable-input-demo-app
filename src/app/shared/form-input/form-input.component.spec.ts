@@ -1,5 +1,5 @@
 import { createComponentFactory, Spectator } from '@ngneat/spectator';
-import { FormControl, ValidationErrors } from '@angular/forms';
+import { UntypedFormControl, ValidationErrors } from '@angular/forms';
 import { FormInputComponent } from './form-input.component';
 
 describe('FormInputComponent', () => {
@@ -10,7 +10,7 @@ describe('FormInputComponent', () => {
 		spectator = createComponent({
 			detectChanges: false, // Disable automatic change detection
 			props: {
-				control: new FormControl(),
+				control: new UntypedFormControl(),
 				isTextArea: false,
 				type: 'text',
 				label: 'Name',

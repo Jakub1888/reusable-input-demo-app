@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FormControl, ValidationErrors } from '@angular/forms';
+import { UntypedFormControl, ValidationErrors } from '@angular/forms';
 
 @Component({
 	selector: 'app-form-input',
@@ -7,7 +7,7 @@ import { FormControl, ValidationErrors } from '@angular/forms';
 	styleUrls: ['./form-input.component.css']
 })
 export class FormInputComponent {
-	@Input() control!: FormControl;
+	@Input() control!: UntypedFormControl;
 	@Input() isTextArea = false;
 	@Input() type = 'text';
 	@Input() label = '';
