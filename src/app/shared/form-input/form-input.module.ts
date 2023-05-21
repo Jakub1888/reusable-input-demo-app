@@ -5,7 +5,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
-  declarations: [FormInputComponent],
-  imports: [CommonModule, ReactiveFormsModule, MatInputModule],
+	declarations: [FormInputComponent],
+	imports: [CommonModule, ReactiveFormsModule, MatInputModule],
+	exports: [FormInputComponent]
 })
 export class FormInputModule {}

@@ -12,7 +12,7 @@ export class FormInputComponent {
 	@Input() type = 'text';
 	@Input() label = '';
 	@Input() placeholder = '';
-	@Input() className = '';
+	@Input() className = 'form-input';
 	@Input() icon!: string;
 	@Input() requiredErrorMessage = '';
 	@Input() patternErrorMessage = '';

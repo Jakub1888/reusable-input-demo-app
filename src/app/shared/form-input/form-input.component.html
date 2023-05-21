@@ -1,30 +1,32 @@
-<ng-container *ngIf="!isTextArea; else textArea">
-	<mat-form-field [class]="className">
-		<mat-label>{{ label }}</mat-label>
-		<input matInput [formControl]="control" [type]="type" [placeholder]="placeholder" />
-		<mat-icon matSuffix *ngIf="icon">{{ icon }}</mat-icon>
-	</mat-form-field>
-</ng-container>
+<div class="form-input-wrapper">
+	<ng-container *ngIf="!isTextArea; else textArea">
+		<mat-form-field [class]="className">
+			<mat-label>{{ label }}</mat-label>
+			<input matInput [formControl]="control" [type]="type" [placeholder]="placeholder" />
+			<mat-icon matSuffix *ngIf="icon">{{ icon }}</mat-icon>
+		</mat-form-field>
+	</ng-container>
 
-<ng-template #textArea>
-	<mat-form-field [class]="className">
-		<mat-label>{{ label }}</mat-label>
-		<textarea matInput [formControl]="control" [placeholder]="placeholder"></textarea>
-		<mat-icon matSuffix *ngIf="icon">{{ icon }}</mat-icon>
-	</mat-form-field>
-</ng-template>
+	<ng-template #textArea>
+		<mat-form-field [class]="className">
+			<mat-label>{{ label }}</mat-label>
+			<textarea matInput [formControl]="control" [placeholder]="placeholder"></textarea>
+			<mat-icon matSuffix *ngIf="icon">{{ icon }}</mat-icon>
+		</mat-form-field>
+	</ng-template>
 
-<ng-container *ngIf="isInvalid">
-	<mat-error *ngIf="validationErrors?.['required']">
-		{{ requiredErrorMessage }}
-	</mat-error>
-	<mat-error *ngIf="validationErrors?.['pattern']">
-		{{ patternErrorMessage }}
-	</mat-error>
-	<mat-error *ngIf="validationErrors?.['minlength']">
-		{{ label + " must have at least " + control.errors?.['minlength']['requiredLength'] + " characters" }}
-	</mat-error>
-	<mat-error *ngIf="validationErrors?.['maxlength']">
-		{{ label + " must have at most " + control.errors?.['maxlength']['requiredLength'] + " characters" }}
-	</mat-error>
-</ng-container>
+	<ng-container *ngIf="isInvalid">
+		<mat-error *ngIf="validationErrors?.['required']">
+			{{ requiredErrorMessage }}
+		</mat-error>
+		<mat-error *ngIf="validationErrors?.['pattern'] && control.touched">
+			{{ patternErrorMessage }}
+		</mat-error>
+		<mat-error *ngIf="validationErrors?.['minlength'] && control.touched">
+			{{ label + " must have at least " + control.errors?.['minlength']['requiredLength'] + " characters" }}
+		</mat-error>
+		<mat-error *ngIf="validationErrors?.['maxlength'] && control.touched">
+			{{ label + " must have at most " + control.errors?.['maxlength']['requiredLength'] + " characters" }}
+		</mat-error>
+	</ng-container>
+</div>

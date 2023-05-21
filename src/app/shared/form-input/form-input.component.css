@@ -1,0 +1,10 @@
+.form-input-wrapper {
+	min-height: 5.3em;
+	width: 25em;
+}
+
+.form-input {
+	width: 100%;
+	font-size: 1.2em;
+	height: 3.2em;
+}
